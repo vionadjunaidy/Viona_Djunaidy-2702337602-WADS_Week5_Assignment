@@ -1,9 +1,0 @@
-version: "3.8"
-services:
-    todoapp:
-      build: .
-      container_name: to-do-list_c
-      ports:
-        - '5173:5173'
-      stdin_open: true
-      tty: true
