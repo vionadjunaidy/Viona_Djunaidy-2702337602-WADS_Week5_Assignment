@@ -1,0 +1,567 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TodoForm {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.todo-input-edit {
+  margin-top: 20px;
+  outline: none;
+  border-radius: 5px;
+  border: 4px solid black;
+  padding: 5px;
+}
+
+
+.todo-btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 black;
+}
+
+.todo-btn-edit {
+  margin-top: 20px;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 3px 3px black;
+  margin-bottom: 2px;
+  background-color: rgb(166, 176, 249);
+}
+
+.Todo {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todo-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  border: 3px solid black;
+  min-width: 260px;
+  min-height: 140px;
+  align-items: flex-start; /* Aligns items to the top */
+  position: relative;
+}
+
+h3 {
+  margin: 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  text-align: left;
+}
+
+.todo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.icons {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.view-btn {
+  padding: 5px;
+  background: white; /* Ensure initial background is white */
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  box-shadow: 3px 3px black;
+  font-size: 14px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0, -5px);
+}
+
+.view-btn:hover {
+  background: white; /* Prevents turning blue */
+  color: black;
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 black;
+}
+
+.view-btn:focus {
+  outline: none; /* Removes default focus styling */
+  background: white; /* Ensures focus doesn’t change color */
+}
+
+.edit-icon {
+  padding: 5px;
+  border: 2px solid black;
+  background-color: #007BFF;
+  border-radius: 5px;
+  margin-bottom: 3px;
+  box-shadow: 3px 3px black;
+  cursor: pointer;
+}
+
+.edit-icon:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 black;
+}
+
+.delete-icon {
+  padding: 5px;
+  border: 2px solid black;
+  background-color: rgb(209, 57, 57);
+  border-radius: 5px;
+  margin-bottom: 3px;
+  box-shadow: 3px 3px black;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 black;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid black;
+  border-radius: 50%;
+  outline: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.checkbox:checked::before {
+  content: '✔';
+  font-size: 14px;
+  color: white;
+  position: absolute;
+}
+
+.checkbox:checked {
+  background-color: rgb(76, 32, 196);
+  border: 2px solid black;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.TodoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.title:hover {
+  background-color: #8e8e8e;
+  transform: scale(1.1);
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: #e2e2e2;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+}
+
+.profile-popup {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  min-height: 100px;
+  line-height: 2;
+}
+
+.logout-btn {
+  background: #ff5a5a;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn svg {
+  margin-right: 5px;
+}
+
+.todo-form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.todo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+input {
+  padding: 5px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+h1 {
+  margin: 10px;
+}
+
+.TodoBoard {
+  text-align: center;
+  margin: 20px;
+}
+
+.todo-lists-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.TodoCard {
+  width: 300px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid black;
+  box-shadow: 5px 5px black;
+}
+
+.add-list-btn {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(76, 32, 196);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content p{
+  text-align: center;
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.todo-input,
+.todo-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.todo-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Link Styles */
+.auth-container p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.close-btn {
+  margin-top: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.pd-profile-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+h2 {
+  color: #333;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.pd-profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #000000;
+  transition: transform 0.3s ease;
+}
+
+.pd-profile-pic:hover {
+  transform: scale(1.1);
+}
+
+input[type="file"] {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.pd-profile-container p {
+  font-size: 16px;
+  color: #555;
+  margin: 8px 0;
+}
+
+strong {
+  color: #222;
+}
+
+@media (max-width: 480px) {
+  .pd-profile-container {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .pd-profile-pic {
+    width: 70px;
+    height: 70px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+.clickable-text {
+  padding: 8px 12px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.clickable-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: #333;
+  transform: scale(1.05);
+}
+
+.profile-input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.save-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #0056b3;
+}
+
+.save-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
