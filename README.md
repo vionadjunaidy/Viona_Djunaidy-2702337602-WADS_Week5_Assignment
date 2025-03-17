@@ -25,4 +25,15 @@ npm install
 ```
 npm run dev
 ```
-The app will be running on http://localhost:3000
+The app will be running on http://localhost:5173/
+
+## 🔧 Setup with Docker
+❶ Pull the Docker image
+```
+docker pull viondjunaidy/to-do-list
+```
+❷ Run the Docker container
+```
+docker run -p 5173:5173 -e HOST=0.0.0.0 viondjunaidy/to-do-list
+```
+The app can be accessed at http://localhost:5173
