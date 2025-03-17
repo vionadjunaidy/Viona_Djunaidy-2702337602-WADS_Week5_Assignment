@@ -13,14 +13,16 @@ A simple **to-do application** built with **React and Firebase**, featuring auth
 
 ## 🔧 Setup with Git Clone
 ❶ Clone the GitHub Repository
-
+```sh
 git clone https://github.com/<your-username>/todo-app.git
 cd todo-app
 
 ❷ Install Dependencies
+```sh
 npm install
 
-❹ Run the App
+❸ Run the App
+```sh
 npm run dev
 
 The app will be running on http://localhost:3000
