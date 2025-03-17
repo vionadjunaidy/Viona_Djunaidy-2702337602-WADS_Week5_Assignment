@@ -1,12 +1,28 @@
-# React + Vite
+# Welcome to Viona's Todo App ✅  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **to-do application** built with **React and Firebase**, featuring authentication and Firestore integration. You can manage your tasks effortlessly, update your profile, and store data securely.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💡Features
+- User Authentication (Email/Password)
+- Create, View, Update, and Delete (CRUD) tasks
+- Profile management with the ability to update profile details
+- Responsive UI with React
+- Firestore as a real-time database
 
-## Expanding the ESLint configuration
+Deployment-ready with Docker support
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔧 Setup with Git Clone
+❶ Clone the GitHub Repository
+
+git clone https://github.com/<your-username>/todo-app.git
+cd todo-app
+
+❷ Install Dependencies
+npm install
+
+❹ Run the App
+npm run dev
+
+The app will be running on http://localhost:3000
