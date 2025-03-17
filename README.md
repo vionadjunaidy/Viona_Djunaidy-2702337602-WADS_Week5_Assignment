@@ -5,13 +5,11 @@ A simple **to-do application** built with **React and Firebase**, featuring auth
 ---
 
 ## 💡Features
-- User Authentication (Email/Password)
+- User Authentication via email and password, as well as Google Sign In
 - Create, View, Update, and Delete (CRUD) tasks
 - Profile management with the ability to update profile details
-- Responsive UI with React
+- Responsive and interactive UI with React
 - Firestore as a real-time database
-
-Deployment-ready with Docker support
 
 ## 🔧 Setup with Git Clone
 ❶ Clone the GitHub Repository
