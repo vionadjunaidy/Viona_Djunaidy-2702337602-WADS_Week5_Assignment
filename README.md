@@ -1,4 +1,4 @@
-# Welcome to Viona's Todo App ✅  
+# Welcome to Viona's Todo App
 
 A simple **to-do application** built with **React and Firebase**, featuring authentication and Firestore integration. You can manage your tasks effortlessly, update your profile, and store data securely.  
 
